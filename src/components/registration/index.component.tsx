@@ -1,23 +1,30 @@
 import React, { Component } from 'react';
+import { injectable, inject,named,interfaces } from "inversify";
+import TYPES from "../../config/containerType";
+import containerconfig from "../../config/containerconfig"
+import iregistrationuiservice from "../../uiservice/interface/iregistrationuiservice";
 import axios from 'axios';
 import TableRow from './TableRow';
+import regmodel from "../../model/registrationmodel";
 
+@injectable()
 export default class Index extends Component<any,any> {
     constructor(props:any) {
         super(props);
         this.state = {business: []};
       }
       componentDidMount(){
-        axios.get('http://localhost:4000/addNewContact')
-          .then(response => {
-            this.setState({ business: response.data });
-          })
-          .catch(function (error) {
-            console.log(error);
-          })
+        let iregn = containerconfig.get<iregistrationuiservice>(TYPES.iregistrationuiservice);
+        iregn.getData()
+             .then((response:any)=>{
+            debugger;
+            this.setState({business:response});
+            }
+        )
       }
       tabRow(){
         return this.state.business.map(function(object:any, i:any){
+          debugger;
             return <TableRow obj={object} key={i} />;
         });
       }

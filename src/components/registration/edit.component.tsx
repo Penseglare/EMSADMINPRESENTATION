@@ -27,34 +27,17 @@ export default class Edit extends Component<any,any> {
 
   componentDidMount() {
       debugger;
-  //  let iregn = containerconfig.get<iregistrationuiservice>(TYPES.iregistrationuiservice);
-  //   const output = iregn.getbyId(this.props.match.params.id)
-  //                       .then((response:any)=>{
-  //       debugger;
-  //       this.setState({person_name: response.data._name,
-  //           business_name: response.data._code,
-  //           business_gst_number:response.data._id });
-  //       }
-  //   )
-  axios.get('http://localhost:4000/getId/id'+this.props.match.params.id)
-        .then((response :any)=> {
-            debugger;
-            return response.data;
-        //     // rmodel.Name = response.data._name;
-        //     // rmodel.Code=response.data._code;
-        //     // rmodel.Id = response.data._id;
-            this.setState({ 
-              person_name: response.data._name, 
-              business_name: response.data._code,
-              business_gst_number: response.data._id });
-         })
-        .catch(function (error:any) {
-            console.log(error);
-        })
-    debugger;
-    // this.setState({person_name: output._name,
-    // business_name: output._code,
-    // business_gst_number:output._id });
+      debugger;
+      let iregn = containerconfig.get<iregistrationuiservice>(TYPES.iregistrationuiservice);
+       iregn.getbyId(this.props.match.params.id)
+            .then((response:any)=>{
+           debugger;
+           this.setState({person_name: response.Name,
+               business_name: response.Code,
+               business_gst_number:response.Id });
+           }
+       )
+  
      }
 
   onChangePersonName(e:any) {
