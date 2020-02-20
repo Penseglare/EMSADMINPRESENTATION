@@ -15,7 +15,6 @@ class TableRow extends Component<any,any> {
       iregn.deleteuser(id)
            .then((response:any)=>{
           debugger;
-          //this.setState({business:response});
           window.location.reload(true);
           }
       )
