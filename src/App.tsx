@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Create from './components/registration/create.component';
 import Edit from './components/registration/edit.component';
 import Index from './components/registration/index.component';
+import Signup from './components/Signup/signup.component';
 
 const App: React.FC = () => {
   return (
@@ -15,7 +16,7 @@ const App: React.FC = () => {
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <Link to={'/'} className="navbar-brand">React CRUD Example</Link>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav mr-auto">
+          <ul id="Menu" className="navbar-nav mr-auto">
           <li className="nav-item">
               <Link to={'/'} className="nav-link">Home</Link>
             </li>
@@ -25,6 +26,9 @@ const App: React.FC = () => {
             <li className="nav-item">
               <Link to={'/index'} className="nav-link">Index</Link>
             </li>
+            <li className="nav-item" >
+              <Link to={'/signup'} className="nav-link">Signup</Link>
+            </li>
           </ul>
         </div>
       </nav> <br/>
@@ -33,6 +37,7 @@ const App: React.FC = () => {
           <Route exact path='/create' component={ Create } />
           <Route path='/edit/:id' component={ Edit } />
           <Route path='/index' component={ Index } />
+          <Route path='/signup' component={ Signup } />
       </Switch>
     </div>
   </Router>
