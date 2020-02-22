@@ -7,7 +7,7 @@ import containerconfig from "../../config/containerconfig"
 
 import iregistrationuiservice from "../../uiservice/interface/iregistrationuiservice";
 import { wait } from '@testing-library/dom';
-
+import regmodel from "../../model/registrationmodel";
 
 @injectable()
 export default class Edit extends Component<any,any> {
@@ -34,7 +34,8 @@ export default class Edit extends Component<any,any> {
            debugger;
            this.setState({person_name: response.Name,
                business_name: response.Code,
-               business_gst_number:response.Id });
+               business_gst_number:response.Id,
+               pkid:response.PkId });
            }
        )
   
@@ -58,13 +59,23 @@ export default class Edit extends Component<any,any> {
 
   onSubmit(e:any) {
     e.preventDefault();
-    const obj = {
-      person_name: this.state.person_name,
-      business_name: this.state.business_name,
-      business_gst_number: this.state.business_gst_number
-    };
-    axios.post('http://localhost:4000/business/update/'+this.props.match.params.id, obj)
-        .then((res:any) => console.log(res.data));
+    // const obj = {
+    //   person_name: this.state.person_name,
+    //   business_name: this.state.business_name,
+    //   business_gst_number: this.state.business_gst_number
+    // };
+    let reg = new regmodel();
+    reg.Name= this.state.person_name;
+    reg.Code= this.state.business_name;
+    reg.Id= this.state.business_gst_number;
+    reg.PkId =this.state.pkid;
+
+    let iregn = containerconfig.get<iregistrationuiservice>(TYPES.iregistrationuiservice);
+      console.log(reg);
+       iregn.updateuser(reg,reg.PkId).then((res : any) => { debugger;console.log(res.data)});
+
+    // axios.post('http://localhost:4000/business/update/'+this.props.match.params.id, obj)
+    //     .then((res:any) => console.log(res.data));
     
     this.props.history.push('/index');
   }

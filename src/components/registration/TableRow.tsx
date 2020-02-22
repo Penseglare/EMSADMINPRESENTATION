@@ -32,10 +32,10 @@ class TableRow extends Component<any,any> {
             {this.props.obj.Id}
           </td>
           <td>
-            <Link to={"/edit/"+this.props.obj.Id} className="btn btn-primary">Edit</Link>
+            <Link to={"/edit/"+this.props.obj.PkId} className="btn btn-primary">Edit</Link>
           </td>
           <td>
-            <button onClick={() =>  this.delete(this.props.obj.Id)} className="btn btn-danger">Delete</button>
+            <button onClick={() =>  this.delete(this.props.obj.PkId)} className="btn btn-danger">Delete</button>
           </td>
         </tr>
     );
