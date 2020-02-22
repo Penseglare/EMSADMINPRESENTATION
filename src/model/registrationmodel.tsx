@@ -3,6 +3,7 @@ export default class registrationmodel
     private _name:string ="";
     private _code:string ="";
     private _id:number =0;
+    private _pkid:string ="";
     
     get Name(){
         
@@ -29,5 +30,14 @@ export default class registrationmodel
         set Id(value : number)
         {
             this._id = value;
+        }
+
+        get PkId(){
+        
+            return this._pkid;
+        }
+        set PkId(value : string)
+        {
+            this._pkid = value;
         }
 }

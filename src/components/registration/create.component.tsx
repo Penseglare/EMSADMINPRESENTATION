@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import TYPES from "../../config/containerType";
+import containerconfig from "../../config/containerconfig"
+import iregistrationuiservice from "../../uiservice/interface/iregistrationuiservice";
+import regmodel from "../../model/registrationmodel"
 
 export default class Create extends Component<any, any> {
     constructor(props: any) {
@@ -32,14 +35,23 @@ export default class Create extends Component<any, any> {
     }
   
     onSubmit(e: any) {
+      debugger;
+
       e.preventDefault();
-      const obj = {
-        person_name: this.state.person_name,
-        business_name: this.state.business_name,
-        business_gst_number: this.state.business_gst_number
-      };
-      axios.post('http://localhost:4000/api/getRegisteredUser', obj)
-        .then(res => console.log(res.data));
+      
+      let reg = new regmodel();
+      reg.Name= this.state.person_name;
+      reg.Code= this.state.business_name;
+      reg.Id= this.state.business_gst_number;
+
+      // const obj = {
+      //   Name: this.state.person_name,
+      //   Code: this.state.business_name,
+      //   Id: this.state.business_gst_number
+      // };
+      let iregn = containerconfig.get<iregistrationuiservice>(TYPES.iregistrationuiservice);
+      console.log(reg);
+       iregn.saveuser(reg).then((res : any) => { console.log("success")});
     
       this.setState({
         person_name: '',
