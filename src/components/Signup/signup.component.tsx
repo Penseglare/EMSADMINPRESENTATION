@@ -29,6 +29,7 @@ export default class Create extends Component<any, any> {
 
     onSubmit(e: any) {
       e.preventDefault();
+      debugger;
       const obj = {
         user_id: this.state.user_id,
         password: this.state.password
