@@ -20,7 +20,8 @@ export default class registrationuiservice implements iregistrationuiservice
             debugger;
             rmodel.Name = response.data._name;
             rmodel.Code=response.data._code;
-            rmodel.Id = response.data._pkId;
+            rmodel.PkId = response.data._pkId;
+            rmodel.Id = response.data._id;
             return rmodel;
          })
         .catch(function (error:any) {
@@ -40,7 +41,8 @@ export default class registrationuiservice implements iregistrationuiservice
             let rmodel = new regmodel(); 
             rmodel.Name = v._name;
             rmodel.Code=v._code;
-            rmodel.Id = v._pkId;
+            rmodel.Id = v.id;
+            rmodel.PkId=v._pkId
             regmodels.push(rmodel);
           })
             return regmodels;
@@ -86,6 +88,24 @@ export default class registrationuiservice implements iregistrationuiservice
         headers:{'Access-Control-Allow-Origin':'*','Content-Type':'application/json'}
       })
       .then((response:any) => {
+        console.log(response);
+          return response;
+       })
+      .catch(function (error:any) {
+          console.log(error);
+      })
+    }
+    public updateuser(reg:regmodel,id:string):any
+    {
+      debugger;
+      console.log(reg);
+       return axios({method:'PUT',
+        url:'http://localhost:4000/api/updateuser/'+id, 
+        data:reg,
+        headers:{'Access-Control-Allow-Origin':'*','Content-Type':'application/json'}
+      })
+      .then((response:any) => {
+        debugger;
         console.log(response);
           return response;
        })

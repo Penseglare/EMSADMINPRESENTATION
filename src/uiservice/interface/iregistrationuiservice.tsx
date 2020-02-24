@@ -6,6 +6,7 @@ export default interface iregistrationuiservice
   getData():any;
   deleteuser(id:string):any
   saveuser(reg:regmodel):any
+  updateuser(reg:regmodel,id:string):any
 }
 
 
