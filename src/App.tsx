@@ -8,7 +8,7 @@ import Create from './components/registration/create.component';
 import Edit from './components/registration/edit.component';
 import Index from './components/registration/index.component';
 import Signup from './components/Signup/signup.component';
-
+import Vendor from './components/vendor/register.component';
 const App: React.FC = () => {
   return (
     <Router>
@@ -41,6 +41,7 @@ const App: React.FC = () => {
           <Route path='/edit/:id' component={ Edit } />
           <Route path='/index' component={ Index } />
           <Route path='/signup' component={ Signup } />
+          <Route path='/vendor' component={ Vendor } />
       </Switch>
     </div>
   </Router>
