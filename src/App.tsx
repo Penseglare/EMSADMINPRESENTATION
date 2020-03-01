@@ -29,6 +29,9 @@ const App: React.FC = () => {
             <li className="nav-item" >
               <Link to={'/signup'} className="nav-link">Signup</Link>
             </li>
+            <li className="nav-item" >
+              <Link to={'/vendor'} className="nav-link">Vendor</Link>
+            </li>
           </ul>
         </div>
       </nav> <br/>
