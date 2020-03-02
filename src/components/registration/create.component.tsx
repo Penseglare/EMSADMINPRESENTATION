@@ -52,7 +52,7 @@ export default class Create extends Component<any, any> {
       let iregn = containerconfig.get<iregistrationuiservice>(TYPES.iregistrationuiservice);
       console.log(reg);
        iregn.saveuser(reg).then((res : any) => { console.log("success")});
-    
+      
       this.setState({
         person_name: '',
         business_name: '',
