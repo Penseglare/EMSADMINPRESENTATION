@@ -10,6 +10,7 @@ export default class vendorRegistrationuiservice implements ivendorRegistrationu
 {
     public savevendorReg(vendor:Vendormodel):any
     {
+      // alert(JSON.stringify(vendor));
       console.log(vendor);
            return axios({method:'post',
         url:'http://localhost:4000/api/savevendor', 

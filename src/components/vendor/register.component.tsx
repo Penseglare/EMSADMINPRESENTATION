@@ -94,13 +94,12 @@ export default class register extends Component<any, any> {
   onSubmit(e: any) {
     e.preventDefault();
     let vendor = new Vendormodel();
-    vendor.vendername= this.state.Name;
-    vendor.mobilenumber= this.state.Mobno;
-    vendor.emailid= this.state.Emailid;
-    vendor.password= this.state.Password;
-    vendor.city= this.state.State;
-    vendor.category= this.state.Category;
-    alert(JSON.stringify(vendor));
+    vendor.Vendername= this.state.Name;
+    vendor.Mobilenumber= this.state.Mobno;
+    vendor.Emailid= this.state.Emailid;
+    vendor.Password= this.state.Password;
+    vendor.City= this.state.State;
+    vendor.Category= this.state.Category;
     let ivendor = containerconfig.get<ivendorRegistrationuiservice>(TYPES.ivendoruiservice);
     console.log(vendor);
      ivendor.savevendorReg(vendor).then((res : any) => { console.log("success")});

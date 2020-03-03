@@ -1,69 +1,61 @@
-export default class registrationmodel
+export default class vendormodel
 {
-    private _id:string;
-    private _vendername:string;
-    private _mobilenumber:number;
-    private _emailid:string;
-    private _password:string;
-    private _city:string;
-    private _state:string;
-    private _category:string;
-    constructor(){
-        this._id="";
-        this._vendername="";
-        this._mobilenumber=0;
-        this._emailid="";
-        this._password="";
-        this._city="";
-        this._state="";
-        this._category="";
-    }
-    get vendername():string{
+    private _id:string="";
+    private _vendername:string="";
+    private _mobilenumber:number=0;
+    private _emailid:string="";
+    private _password:string="";
+    private _city:string="";
+    private _state:string="";
+    private _category:string="";
+    
+    
+    get Vendername(){
         return this._vendername;
     }
-    set vendername(value:string){
+    set Vendername(value:string){
         this._vendername=value;
     }
-    get mobilenumber():number{
+    get Mobilenumber(){
         return this._mobilenumber;
     }
-    set mobilenumber(value:number){
+    set Mobilenumber(value:number){
         this._mobilenumber=value;
     }
-    get emailid():string{
+    get Emailid(){
         return this._emailid;
     }
-    set emailid(value:string){
+    set Emailid(value:string){
         this._emailid=value;
     }
-    get password():string{
+    get Password(){
         return this._password;
     }
-    set password(value:string){
+    set Password(value:string){
         this._password=value;
     }
-    get city():string{
+    get City(){
         return this._city;
     }
-    set city(value:string){
+    set City(value:string){
         this._city=value;
     }
-    get state():string{
+    get State(){
         return this._state;
     }
-    set state(value:string){
+    set State(value:string){
         this._state=value;
     }
-    get category():string{
+    get Category(){
         return this._category;
     }
-    set category(value:string){
+    set Category(value:string){
         this._category=value;
     }
-    get id():string{
+    get Id(){
         return this._id;
     }
-    set id(value:string){
+    set Id(value:string){
         this._id=value;
     }
 }
