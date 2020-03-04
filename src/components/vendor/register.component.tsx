@@ -82,13 +82,13 @@ export default class register extends Component<any, any> {
       this.onSubmit = this.onSubmit.bind(this);
 
       this.state = {
-          Name: 'dfsd',
-          Mobno: '9656965511',
-          Emailid:'sdf@g.com',
-          Password:'123',
-          City:'kerala',
-          State:'thirissur',
-          Category:'sdf'
+          Name: '12323',
+          Mobno: '222',
+          Emailid:'222@g.com',
+          Password:'222',
+          City:'2222',
+          State:'22',
+          Category:'22'
       }
   }
   onSubmit(e: any) {
@@ -98,7 +98,8 @@ export default class register extends Component<any, any> {
     vendor.Mobilenumber= this.state.Mobno;
     vendor.Emailid= this.state.Emailid;
     vendor.Password= this.state.Password;
-    vendor.City= this.state.State;
+    vendor.City= this.state.City;
+    vendor.State=this.state.State;
     vendor.Category= this.state.Category;
     let ivendor = containerconfig.get<ivendorRegistrationuiservice>(TYPES.ivendoruiservice);
     console.log(vendor);
