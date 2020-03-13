@@ -9,7 +9,7 @@ import Edit from './components/registration/edit.component';
 import Index from './components/registration/index.component';
 import Signup from './components/Signup/signup.component';
 import UserGroup from './components/UserGroup/userindex.component';
-
+import AddUserGroup from './components/UserGroup/usercreate.component';
 const App: React.FC = () => {
   return (
     <Router>
@@ -33,6 +33,9 @@ const App: React.FC = () => {
             <li className="nav-item" >
               <Link to={'/userindex'} className="nav-link">UserGroup</Link>
             </li>
+            <li className="nav-item" >
+              <Link to={'/usercreate'} className="nav-link"></Link>
+            </li>
           </ul>
         </div>
       </nav> <br/>
@@ -43,6 +46,7 @@ const App: React.FC = () => {
           <Route path='/index' component={ Index } />
           <Route path='/signup' component={ Signup } />
           <Route path='/userindex' component={ UserGroup } />
+          <Route path='/usercreate' component={ AddUserGroup } />
       </Switch>
     </div>
   </Router>

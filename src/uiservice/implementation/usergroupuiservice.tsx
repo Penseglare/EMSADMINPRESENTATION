@@ -35,8 +35,8 @@ export default class usergroupuiservice implements iusergroupuiservice
           let usergrpmodels = Array<usergroupmodel>();
           response.data.map((v:any,i:number)=>{
             let usrgrpmodel = new usergroupmodel(); 
-            usrgrpmodel.UserGroupName = v._usergroupname;
-            usrgrpmodel.UserGroupDescription=v._usergroupdescription;
+            usrgrpmodel.UserGroupName = v._groupname;
+            usrgrpmodel.UserGroupDescription=v._groupdescription;
             usrgrpmodel.Id = v._id;
             usrgrpmodel.ExportReport=v._exportreports;
             usergrpmodels.push(usrgrpmodel);
