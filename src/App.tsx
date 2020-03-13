@@ -8,7 +8,8 @@ import Create from './components/registration/create.component';
 import Edit from './components/registration/edit.component';
 import Index from './components/registration/index.component';
 import Signup from './components/Signup/signup.component';
-import Vendor from './components/vendor/register.component';
+import Vendor from './components/vendor/index.component';
+
 const App: React.FC = () => {
   return (
     <Router>

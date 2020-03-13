@@ -82,13 +82,13 @@ export default class register extends Component<any, any> {
       this.onSubmit = this.onSubmit.bind(this);
 
       this.state = {
-          Name: '12323',
-          Mobno: '222',
-          Emailid:'222@g.com',
-          Password:'222',
-          City:'2222',
-          State:'22',
-          Category:'22'
+          Name: '',
+          Mobno: '',
+          Emailid:'',
+          Password:'',
+          City:'',
+          State:'',
+          Category:''
       }
   }
   onSubmit(e: any) {
