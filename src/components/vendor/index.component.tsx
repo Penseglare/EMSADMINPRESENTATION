@@ -6,7 +6,8 @@ import ivendorRegistrationuiservice from "../../uiservice/interface/ivendorRegis
 import axios from 'axios';
 import TableRow from './TableRow';
 import Vendormodel from "../../model/Vendormodel";
-import { Redirect, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+
 import  vendorregister  from '../vendor/register.component';
 
 
@@ -17,8 +18,11 @@ render() {
       <div>
         <div className="form-group">
               <h3>Vendor List</h3>
-              <input type="submit" value="Vendor Registration" onClick={this.onClick}  className="btn btn-primary"/>
-              
+              <Router>
+              <Link to={'/vendorregister'} className="btn btn-primary">Vendor Registration</Link>
+              {/* <input type="submit" value="Vendor Registration" onClick={this.onClick}  className="btn btn-primary"/> */}
+              <Route path='/vendorregister' component={vendorregister}/>
+              </Router>
         </div>
         <table className="table table-striped" style={{ marginTop: 20 }}>
           <thead>
@@ -37,6 +41,7 @@ render() {
           </tbody>
         </table>
       </div>
+      
     );
   }
   constructor(props:any) {
@@ -56,8 +61,11 @@ render() {
         return <TableRow obj={object} key={i} />;
     });
   }
+
+
+
   onClick=()=>{
     debugger;
-      return <Route path='/vendorregister' component={vendorregister}/>
+      return <Route path='./vendorregister' component={vendorregister}/>
     }
 }
