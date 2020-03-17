@@ -1,7 +1,7 @@
 'use strict';
 const TYPES = {
     iregistrationuiservice: Symbol("iregistrationuiservice"),
-    iuseruiservice:Symbol("iuseruiservice"),
+    ivendoruiservice: Symbol("ivendorRegistrationuiservice"),
     //isample: Symbol("isample")
   };
 

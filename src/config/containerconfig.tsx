@@ -4,14 +4,14 @@ import { Container} from "inversify";
 import TYPES from "../config/containerType";
 import iregistrationuiservice from "../uiservice/interface/iregistrationuiservice";
 import registrationuiservice from "../uiservice/implementation/registrationuiservice";
-import iuseruiservice from "../uiservice/interface/iuseruiservice";
-import useruiservice from "../uiservice/implementation/useruiservice";
+import ivendorRegistrationuiservice from "../uiservice/interface/ivendorRegistrationuiservice"
+import vendorRegistrationuiservice from "../uiservice/implementation/vendorRegistrationuiservice";
 
 const container = new Container();
 
 //controller injuction
 container.bind<iregistrationuiservice>(TYPES.iregistrationuiservice).to(registrationuiservice);
-container.bind<iuseruiservice>(TYPES.iuseruiservice).to(useruiservice);
+container.bind<ivendorRegistrationuiservice>(TYPES.ivendoruiservice).to(vendorRegistrationuiservice);
 //business injuction  
 //container.bind<isampleManager>(TYPES.isampleManager).to(sampleManager);
 
