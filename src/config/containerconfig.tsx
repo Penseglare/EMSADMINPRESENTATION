@@ -6,11 +6,14 @@ import iregistrationuiservice from "../uiservice/interface/iregistrationuiservic
 import registrationuiservice from "../uiservice/implementation/registrationuiservice";
 import iusergroupuiservice from "../uiservice/interface/iusergroupuiservice";
 import usergroupuiservice from "../uiservice/implementation/usergroupuiservice";
+import ivendorRegistrationuiservice from "../uiservice/interface/ivendorRegistrationuiservice"
+import vendorRegistrationuiservice from "../uiservice/implementation/vendorRegistrationuiservice";
 const container = new Container();
 
 //controller injuction
 container.bind<iregistrationuiservice>(TYPES.iregistrationuiservice).to(registrationuiservice);
 container.bind<iusergroupuiservice>(TYPES.iusergroupuiservice).to(usergroupuiservice);
+container.bind<ivendorRegistrationuiservice>(TYPES.ivendoruiservice).to(vendorRegistrationuiservice);
 //business injuction  
 //container.bind<isampleManager>(TYPES.isampleManager).to(sampleManager);
 
