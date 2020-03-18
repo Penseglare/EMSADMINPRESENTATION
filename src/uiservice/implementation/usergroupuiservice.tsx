@@ -39,7 +39,7 @@ export default class usergroupuiservice implements iusergroupuiservice
             let usrgrpmodel = new usergroupmodel(); 
             usrgrpmodel.UserGroupName = v._groupname;
             usrgrpmodel.UserGroupDescription=v._groupdescription;
-            usrgrpmodel.Id = v._id;
+            usrgrpmodel.Id = v._groupid;
             usrgrpmodel.ExportReport=v._exportreports;
             usergrpmodels.push(usrgrpmodel);
           })

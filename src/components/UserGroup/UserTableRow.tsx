@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import axios from 'axios';
 import TYPES from "../../config/containerType";
 import containerconfig from "../../config/containerconfig"
 import iusergroupuiservice from "../../uiservice/interface/iusergroupuiservice";
+
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import  userGroupCreate  from '../UserGroup/usercreate.component';
+
 class UserTableRow extends Component<any,any> {
 
   constructor(props:any) {
@@ -32,7 +36,13 @@ class UserTableRow extends Component<any,any> {
             {this.props.obj.Id}
           </td>
           <td>
-            <Link to={"/edit/"+this.props.obj.Id} className="btn btn-primary">Edit</Link>
+            {/* <Link to={"/useredit/"+this.props.obj.Id} className="btn btn-primary">Edit</Link> */}
+            <Link to={"/useredit/"+this.props.obj.Id} className="btn btn-primary">Edit</Link>
+            {/* <Router>
+              <Link to={'/userGroupCreate/'+this.props.obj.Id} className="btn btn-primary">Edit</Link>
+              <Route path='/userGroupCreate' component={userGroupCreate}/>
+              </Router> */}
+
           </td>
           <td>
             <button onClick={() =>  this.delete(this.props.obj.Id)} className="btn btn-danger">Delete</button>

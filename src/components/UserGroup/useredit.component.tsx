@@ -72,7 +72,7 @@ export default class Edit extends Component<any,any> {
       console.log(user_group);
       user_group.updateUserGroup(usergroup,usergroup.Id).then((res : any) => { debugger;console.log(res.data)});
 
-    this.props.history.push('/index');
+    // this.props.history.push('/index');
   }
  
   render() {
@@ -85,7 +85,7 @@ export default class Edit extends Component<any,any> {
                     <input 
                       type="text" 
                       className="form-control" 
-                      value={this.state.person_name}
+                      value={this.state.UsergroupName}
                       onChange={this.onChangeUsergroupName}
                       />
                 </div>
@@ -93,7 +93,7 @@ export default class Edit extends Component<any,any> {
                     <label>Description: </label>
                     <input type="text" 
                       className="form-control"
-                      value={this.state.business_name}
+                      value={this.state.UsergroupDescription}
                       onChange={this.onChangeUsergroupDescription}
                       />
                 </div>

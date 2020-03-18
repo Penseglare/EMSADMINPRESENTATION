@@ -48,7 +48,7 @@ export default class Create extends Component<any, any> {
       
       let usrgrp = new usergroupmodel();
       usrgrp.UserGroupName =this.state.UsergroupName;
-      usrgrp.UserGroupDescription= this.state.Usergroupdescription;
+      usrgrp.UserGroupDescription= this.state.UsergroupDescription;
       usrgrp.Id= this.state.UserGroupId;
       usrgrp.ExportReport= this.state.ExportReport;
      
@@ -64,7 +64,20 @@ export default class Create extends Component<any, any> {
 
       })
     }
-   
+    // componentDidMount() {
+    //   debugger;
+    //   let iusergroup = containerconfig.get<iusergroupuiservice>(TYPES.iusergroupuiservice);
+    //   iusergroup.getUserGroupById(this.props.match.params.id)
+    //         .then((response:any)=>{
+    //        debugger;
+    //        this.setState({UsergroupName: response.UsergroupName,
+    //         UsergroupDescription: response.UsergroupDescription,
+    //         UserGroupId:response.Id,
+    //           });
+    //        }
+    //    )
+  
+    //  }
     render() {
         return (
             <div style={{ marginTop: 10 }}>
@@ -83,7 +96,7 @@ export default class Create extends Component<any, any> {
                     <label>Description: </label>
                     <input type="text" 
                       className="form-control"
-                      value={this.state.Usergroupdescription}
+                      value={this.state.UsergroupDescription}
                       onChange={this.onChangeUsergroupDescription}
                       />
                 </div>
