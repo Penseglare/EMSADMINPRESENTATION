@@ -10,6 +10,7 @@ import Index from './components/registration/index.component';
 import Signup from './components/Signup/signup.component';
 import UserGroup from './components/UserGroup/userindex.component';
 import AddUserGroup from './components/UserGroup/usercreate.component';
+import  userGroupEdit  from './components/UserGroup/useredit.component';
 const App: React.FC = () => {
   return (
     <Router>
@@ -47,6 +48,7 @@ const App: React.FC = () => {
           <Route path='/signup' component={ Signup } />
           <Route path='/userindex' component={ UserGroup } />
           <Route path='/usercreate' component={ AddUserGroup } />
+          <Route path='/useredit/:id' component={ userGroupEdit } />
       </Switch>
     </div>
   </Router>

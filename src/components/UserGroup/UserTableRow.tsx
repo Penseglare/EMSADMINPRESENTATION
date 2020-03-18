@@ -6,7 +6,7 @@ import containerconfig from "../../config/containerconfig"
 import iusergroupuiservice from "../../uiservice/interface/iusergroupuiservice";
 
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import  userGroupCreate  from '../UserGroup/usercreate.component';
+
 
 class UserTableRow extends Component<any,any> {
 

@@ -13,6 +13,7 @@ import usergroupmodel from "../../model/usergroupmodel";
 export default class Edit extends Component<any,any> {
   constructor(props:any) {
     super(props);
+    debugger;
     this.onChangeUsergroupName = this.onChangeUsergroupName.bind(this);
     this.onChangeUsergroupDescription = this.onChangeUsergroupDescription.bind(this);
     this.onChangeUserGroupId = this.onChangeUserGroupId.bind(this);
@@ -31,9 +32,10 @@ export default class Edit extends Component<any,any> {
       iusergroup.getUserGroupById(this.props.match.params.id)
             .then((response:any)=>{
            debugger;
-           this.setState({UsergroupName: response.UsergroupName,
-            UsergroupDescription: response.UsergroupDescription,
-            UserGroupId:response.Id,
+           console.log(response);
+           this.setState({UsergroupName: response._usergroupname,
+            UsergroupDescription: response._usergroupdescription,
+            UserGroupId:response._id,
               });
            }
        )

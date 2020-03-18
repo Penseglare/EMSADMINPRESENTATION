@@ -17,9 +17,10 @@ export default class usergroupuiservice implements iusergroupuiservice
         
         .then((response:any) => {
             debugger;
-            usergrpmodel.UserGroupName = response.data._usergroupname;
-            usergrpmodel.UserGroupDescription=response.data._usergroupdescription;
-            usergrpmodel.Id = response.data._id;
+            usergrpmodel.UserGroupName = response.data._groupname;
+            usergrpmodel.UserGroupDescription=response.data._groupdescription;
+            usergrpmodel.Id = response.data._groupid;
+            usergrpmodel.ExportReport=response.data._exportreport;
             return usergrpmodel;
          })
         .catch(function (error:any) {
