@@ -6,7 +6,9 @@ import iusergroupuiservice from "../../uiservice/interface/iusergroupuiservice";
 import axios from 'axios';
 import TableRow from './UserTableRow';
 import usergroupmodel from "../../model/usergroupmodel";
-import {Redirect} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import  userGroupCreate  from '../UserGroup/usercreate.component';
+
 @injectable()
 export default class Index extends Component<any,any> {
     constructor(props:any) {
@@ -28,17 +30,25 @@ export default class Index extends Component<any,any> {
             return <TableRow obj={object} key={i} />;
         });
       }
-  onClick=() => {
+  // onClick=() => {
   
-    return  <Redirect  to="/usercreate/" />
-    }
+  //   return  <Redirect  to="/usercreate/" />
+  //   }
  
       render() {
         return (
           <div>
             <h3>User Group List</h3>
             <div className="form-group">
-            <button onClick={this.onClick}>Add New Group</button> 
+
+
+            <Router>
+              <Link to={'/userGroupCreate'} className="btn btn-primary">Add New Group</Link>
+              {/* <input type="submit" value="Vendor Registration" onClick={this.onClick}  className="btn btn-primary"/> */}
+              <Route path='/userGroupCreate' component={userGroupCreate}/>
+              </Router>
+
+            {/* <button onClick={this.onClick}>Add New Group</button>  */}
                     </div>
             <table className="table table-striped" style={{ marginTop: 20 }}>
               <thead>

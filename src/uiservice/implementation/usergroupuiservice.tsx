@@ -29,10 +29,11 @@ export default class usergroupuiservice implements iusergroupuiservice
     public  getUserGroup():any
     {
         debugger;
+        let usergrpmodels = Array<usergroupmodel>();
        return axios.get('http://localhost:4000/api/getUserGroup')
         .then((response:any) => {
             debugger;
-          let usergrpmodels = Array<usergroupmodel>();
+          console.log(response.data);
           response.data.map((v:any,i:number)=>{
             let usrgrpmodel = new usergroupmodel(); 
             usrgrpmodel.UserGroupName = v._groupname;
@@ -41,7 +42,7 @@ export default class usergroupuiservice implements iusergroupuiservice
             usrgrpmodel.ExportReport=v._exportreports;
             usergrpmodels.push(usrgrpmodel);
           })
-         
+          return usergrpmodels;
          })
          
         .catch(function (error:any) {
