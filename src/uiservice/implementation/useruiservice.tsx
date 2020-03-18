@@ -4,6 +4,7 @@ import axios from 'axios';
 import iuseruiservice from "../interface/iuseruiservice";
 
 import usermodel from "../../model/usermodel"
+import baseConfig from "../../config/baseConfig"
 
 @injectable()
 export default class useruiservice implements iuseruiservice
@@ -13,7 +14,7 @@ export default class useruiservice implements iuseruiservice
         debugger;
         let rmodel = new usermodel();
         console.log(id);
-         return axios.get('http://localhost:4000/api/getRegisteredUserById/'+id)
+         return axios.get(baseConfig.baseUrl+'api/getRegisteredUserById/'+id)
         //return axios.get('http://192.168.1.3:8082/api/id'+id+'/getRegisteredUserById')
         
         .then((response:any) => {
@@ -34,7 +35,7 @@ export default class useruiservice implements iuseruiservice
     {
         debugger;
         //return axios.get('http://192.168.1.3:8082/api/getRegisteredUser')
-        return axios.get('http://localhost:4000/api/getRegisteredUser')
+        return axios.get(baseConfig.baseUrl+'api/getRegisteredUser')
         .then((response:any) => {
             debugger;
           let usermodels = Array<usermodel>();
@@ -59,7 +60,7 @@ export default class useruiservice implements iuseruiservice
         debugger;
         let rmodel = new usermodel();
         console.log(id);
-         return axios.get('http://localhost:4000/api/deleteuser/'+id)
+         return axios.get(baseConfig.baseUrl+'api/deleteuser/'+id)
         //return axios.get('http://192.168.1.3:8082/api/id'+id+'/getRegisteredUserById')
         
         .then((response:any) => {
@@ -87,7 +88,7 @@ export default class useruiservice implements iuseruiservice
       debugger;
       console.log(reg);
            return axios({method:'post',
-        url:'http://localhost:4000/api/saveuser', 
+        url:baseConfig.baseUrl+'api/saveuser', 
         data:reg,
         headers:{'Access-Control-Allow-Origin':'*','Content-Type':'application/json'}
       })
@@ -104,7 +105,7 @@ export default class useruiservice implements iuseruiservice
       debugger;
       console.log(reg);
        return axios({method:'PUT',
-        url:'http://localhost:4000/api/updateuser/'+id, 
+        url:baseConfig.baseUrl+'api/updateuser/'+id, 
         data:reg,
         headers:{'Access-Control-Allow-Origin':'*','Content-Type':'application/json'}
       })

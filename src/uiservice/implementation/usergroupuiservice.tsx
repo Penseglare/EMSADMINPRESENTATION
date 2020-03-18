@@ -2,7 +2,8 @@ import "reflect-metadata";
 import { injectable} from "inversify";
 import axios from 'axios';
 import iusergroupuiservice from "../interface/iusergroupuiservice";
-import usergroupmodel from "../../model/usergroupmodel"
+import usergroupmodel from "../../model/usergroupmodel";
+import baseConfig from "../../config/baseConfig"
 
 @injectable()
 export default class usergroupuiservice implements iusergroupuiservice
@@ -12,7 +13,7 @@ export default class usergroupuiservice implements iusergroupuiservice
         debugger;
         let usergrpmodel  = new usergroupmodel();
         console.log(id);
-         return axios.get('http://localhost:4000/api/getUserGroupById/'+id)
+         return axios.get(baseConfig.baseUrl+'api/getUserGroupById/'+id)
         
         .then((response:any) => {
             debugger;
@@ -30,7 +31,7 @@ export default class usergroupuiservice implements iusergroupuiservice
     {
         debugger;
         let usergrpmodels = Array<usergroupmodel>();
-       return axios.get('http://localhost:4000/api/getUserGroup')
+       return axios.get(baseConfig.baseUrl+'api/getUserGroup')
         .then((response:any) => {
             debugger;
           console.log(response.data);
@@ -55,7 +56,7 @@ export default class usergroupuiservice implements iusergroupuiservice
         debugger;
         let usergrpmodels = new usergroupmodel();
         console.log(id);
-         return axios.get('http://localhost:4000/api/deleteUserGroup/'+id)
+         return axios.get(baseConfig.baseUrl+'api/deleteUserGroup/'+id)
        
         .then((response:any) => {
           debugger;
@@ -80,7 +81,7 @@ export default class usergroupuiservice implements iusergroupuiservice
       debugger;
       console.log(usergroup);
            return axios({method:'post',
-        url:'http://localhost:4000/api/saveUserGroup', 
+        url:baseConfig.baseUrl+'api/saveUserGroup', 
         data:usergroup,
         headers:{'Access-Control-Allow-Origin':'*','Content-Type':'application/json'}
       })
@@ -97,7 +98,7 @@ export default class usergroupuiservice implements iusergroupuiservice
       debugger;
       console.log(usergroup);
        return axios({method:'PUT',
-        url:'http://localhost:4000/api/updateUserGroup/'+id, 
+        url:baseConfig.baseUrl+'api/updateUserGroup/'+id, 
         data:usergroup,
         headers:{'Access-Control-Allow-Origin':'*','Content-Type':'application/json'}
       })

@@ -4,7 +4,7 @@ import axios from 'axios';
 import ivendorRegistrationuiservice from "../interface/ivendorRegistrationuiservice";
 
 import Vendormodel from "../../model/Vendormodel"
-
+import baseConfig from "../../config/baseConfig"
 @injectable()
 export default class vendorRegistrationuiservice implements ivendorRegistrationuiservice
 {
@@ -14,7 +14,7 @@ export default class vendorRegistrationuiservice implements ivendorRegistrationu
       // debugger;
       console.log(vendor);
            return axios({method:'post',
-        url:'http://localhost:4000/api/savevendor', 
+        url:baseConfig.baseUrl+'api/savevendor', 
         data:vendor,
         headers:{'Access-Control-Allow-Origin':'*','Content-Type':'application/json'}
       })
@@ -28,7 +28,7 @@ export default class vendorRegistrationuiservice implements ivendorRegistrationu
     }
     public  getData():any
     {
-        return axios.get('http://localhost:4000/api/getallRegistredvendors')
+        return axios.get(baseConfig.baseUrl+'api/getallRegistredvendors')
         .then((response:any) => {
           let vedmodels = Array<Vendormodel>();
           response.data.map((v:any,i:number)=>{
@@ -54,7 +54,7 @@ export default class vendorRegistrationuiservice implements ivendorRegistrationu
     {
         let vmodel = new Vendormodel();
         console.log(id);
-         return axios.get('http://localhost:4000/api/getRegistredvendorById/'+id)
+         return axios.get(baseConfig.baseUrl+'api/getRegistredvendorById/'+id)
         .then((response:any) => {
           vmodel.Vendername = response.data._vendername;
           vmodel.Mobilenumber=response.data._mobilenumber;

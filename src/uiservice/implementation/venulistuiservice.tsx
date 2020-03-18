@@ -3,6 +3,7 @@ import { injectable} from "inversify";
 import axios from 'axios';
 import ivenulistuiservice from "../interface/ivenulistuiservice";
 import regmodel from "../../model/venulistmodel"
+import baseConfig from "../../config/baseConfig"
 @injectable()
 export default class venulistuiservice implements ivenulistuiservice
 {
@@ -10,7 +11,7 @@ export default class venulistuiservice implements ivenulistuiservice
     {
         debugger;
         //return axios.get('http://192.168.1.3:8082/api/getRegisteredUser')
-        return axios.get('http://localhost:4000/api/getVenuList')
+        return axios.get(baseConfig.baseUrl+'api/getVenuList')
         .then((response:any) => {
             debugger;
           let regmodels = Array<regmodel>();
@@ -34,7 +35,7 @@ export default class venulistuiservice implements ivenulistuiservice
     {
         debugger;
         //return axios.get('http://192.168.1.3:8082/api/getRegisteredUser')
-        return axios.get('http://localhost:4000/api/getVenuListBySearch')
+        return axios.get(baseConfig.baseUrl+'api/getVenuListBySearch')
         .then((response:any) => {
             debugger;
           let regmodels = Array<regmodel>();
