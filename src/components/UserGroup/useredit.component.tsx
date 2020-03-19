@@ -18,11 +18,12 @@ export default class Edit extends Component<any,any> {
     this.onChangeUsergroupDescription = this.onChangeUsergroupDescription.bind(this);
     this.onChangeUserGroupId = this.onChangeUserGroupId.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
-
+this.onChangeExportReport = this.onChangeExportReport.bind(this);
     this.state = {
       UsergroupName: '',
       UsergroupDescription: '',
-      UserGroupId:''
+      UserGroupId:'',
+      ExportReport:''
     }
   }
 
@@ -36,6 +37,7 @@ export default class Edit extends Component<any,any> {
            this.setState({UsergroupName: response._usergroupname,
             UsergroupDescription: response._usergroupdescription,
             UserGroupId:response._id,
+            ExportReport:response._exportreports
               });
            }
        )
@@ -57,6 +59,11 @@ export default class Edit extends Component<any,any> {
       UserGroupId: e.target.value
     })
   }
+  onChangeExportReport(e:any) {
+    this.setState({
+    ExportReport: e.target.value
+  })
+}
 
   onSubmit(e:any) {
     e.preventDefault();
@@ -69,7 +76,7 @@ export default class Edit extends Component<any,any> {
     usergroup.UserGroupName= this.state.UsergroupName;
     usergroup.UserGroupDescription= this.state.UsergroupDescription;
     usergroup.Id= this.state.UserGroupId;
-
+    usergroup.ExportReport =this.state.ExportReport;
     let user_group = containerconfig.get<iusergroupuiservice>(TYPES.iusergroupuiservice);
       console.log(user_group);
       user_group.updateUserGroup(usergroup,usergroup.Id).then((res : any) => { debugger;console.log(res.data)});
@@ -99,7 +106,18 @@ export default class Edit extends Component<any,any> {
                       onChange={this.onChangeUsergroupDescription}
                       />
                 </div>
-               
+                <div className="form-group">
+                    <label>Can Export Reports: </label>
+                    <select id="exportgrp">
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select>
+                    <input type="select" 
+                      className="form-control"
+                      value={this.state.ExportReport}
+                      onChange={this.onChangeExportReport}
+                      />
+                </div>
                 <div className="form-group">
                     <input type="submit" 
                       value="Update User Group" 

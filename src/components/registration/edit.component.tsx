@@ -110,6 +110,7 @@ export default class Edit extends Component<any,any> {
                       onChange={this.onChangeGstNumber}
                       />
                 </div>
+                
                 <div className="form-group">
                     <input type="submit" 
                       value="Update Business" 
