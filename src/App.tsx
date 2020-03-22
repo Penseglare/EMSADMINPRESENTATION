@@ -33,6 +33,9 @@ const App: React.FC = () => {
               <Link to={'/signup'} className="nav-link">Signup</Link>
             </li>
             <li className="nav-item" >
+              <Link to={'/vendor'} className="nav-link">Vendor</Link>
+            </li>
+            <li className="nav-item" >
               <Link to={'/userindex'} className="nav-link">UserGroup</Link>
             </li>
             <li className="nav-item" >
