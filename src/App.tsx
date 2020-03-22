@@ -8,6 +8,7 @@ import Create from './components/registration/create.component';
 import Edit from './components/registration/edit.component';
 import Index from './components/registration/index.component';
 import Signup from './components/Signup/signup.component';
+import Vendor from './components/vendor/index.component';
 import UserGroup from './components/UserGroup/userindex.component';
 import AddUserGroup from './components/UserGroup/usercreate.component';
 import  userGroupEdit  from './components/UserGroup/useredit.component';
@@ -46,6 +47,7 @@ const App: React.FC = () => {
           <Route path='/edit/:id' component={ Edit } />
           <Route path='/index' component={ Index } />
           <Route path='/signup' component={ Signup } />
+          <Route path='/vendor' component={ Vendor } />
           <Route path='/userindex' component={ UserGroup } />
           <Route path='/usercreate' component={ AddUserGroup } />
           <Route path='/useredit/:id' component={ userGroupEdit } />
