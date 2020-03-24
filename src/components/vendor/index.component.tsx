@@ -15,14 +15,17 @@ import  vendorregister  from '../vendor/register.component';
 export default class index extends Component<any,any> {
 render() {
     return (
+      <Router>
       <div>
         <div className="form-group">
               <h3>Vendor List</h3>
-              <Router>
-              <Link to={'/vendorregister'} className="btn btn-primary">Vendor Registration</Link>
-              {/* <input type="submit" value="Vendor Registration" onClick={this.onClick}  className="btn btn-primary"/> */}
+            
+              <Switch>
               <Route path='/vendorregister' component={vendorregister}/>
-              </Router>
+              <Route path='/vendorregister/:id' component={vendorregister}/>
+              </Switch>
+              <Link to={'/vendorregister'} className="btn btn-primary">Vendor Registration</Link>
+              
         </div>
         <table className="table table-striped" style={{ marginTop: 20 }}>
           <thead>
@@ -41,7 +44,7 @@ render() {
           </tbody>
         </table>
       </div>
-      
+      </Router>
     );
   }
   constructor(props:any) {

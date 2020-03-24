@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import TYPES from "../../config/containerType";
 import containerconfig from "../../config/containerconfig"
 import ivendorRegistrationuiservice from "../../uiservice/interface/ivendorRegistrationuiservice";
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 class TableRow extends Component<any,any> {
 
   // constructor(props:any) {
@@ -41,7 +41,10 @@ class TableRow extends Component<any,any> {
             {this.props.obj.Category }
           </td>
           <td>
-            <Link to={"/edit/"+this.props.obj.PkId} className="btn btn-primary">Edit</Link>
+          {/* <Router> */}
+            {/* <Link to={"/edit/"+this.props.obj.PkId} className="btn btn-primary">Edit</Link> */}
+            <Link to={'/vendorregister/'+this.props.obj.Id} className="btn btn-primary">Edit</Link>
+            {/* </Router> */}
           </td>
           {/* <td>
             <button onClick={() =>  this.delete(this.props.obj.PkId)} className="btn btn-danger">Delete</button>
