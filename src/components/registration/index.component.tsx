@@ -7,20 +7,30 @@ import axios from 'axios';
 import TableRow from './TableRow';
 import regmodel from "../../model/registrationmodel";
 
+
+import {actionVariable} from '../../actions/actions';
+import reducer from '../../reducers/reducers';
+import store from '../../store/store'
+import { connect } from 'react-redux';
+
 @injectable()
-export default class Index extends Component<any,any> {
+ class Index extends Component<any,any> {
     constructor(props:any) {
         super(props);
         this.state = {business: []};
       }
       componentDidMount(){
         let iregn = containerconfig.get<iregistrationuiservice>(TYPES.iregistrationuiservice);
+        if(this.props.business.length==0)
+        {
         iregn.getData()
              .then((response:any)=>{
             debugger;
-            this.setState({business:response});
+            this.props.setData(response);
+            // this.setState({business:response});
             }
         )
+      }
       }
       tabRow(){
         return this.state.business.map(function(object:any, i:any){
@@ -28,7 +38,7 @@ export default class Index extends Component<any,any> {
             return <TableRow obj={object} key={i} />;
         });
       }
-  
+     
       render() {
         return (
           <div>
@@ -50,3 +60,21 @@ export default class Index extends Component<any,any> {
         );
       }
 }
+const mapStateToProp=(state:any)=>
+      {
+      return {  business:state.todoSmple.business||[]};
+      }
+      const   mapDispatchToProp=(dispatch:any)=>
+      {
+      return{
+      setData:(business:any)=>
+      {
+      dispatch({type:actionVariable.SET_DATA,business})
+      },
+      removeData:()=>
+      {
+        dispatch({type:actionVariable.REMOVE_DATA})
+      }
+      };
+      }
+export default connect(mapStateToProp,mapDispatchToProp)(Index)
