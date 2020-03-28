@@ -29,6 +29,7 @@ import { connect } from 'react-redux';
             debugger;
             this.props.setData(response);
             // this.setState({business:response});
+            console.log(this.state);
             }
         )
       }
