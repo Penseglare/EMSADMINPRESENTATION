@@ -20,6 +20,7 @@ import { connect } from 'react-redux';
         this.state = {business: []};
       }
       componentDidMount(){
+        debugger;
         let iregn = containerconfig.get<iregistrationuiservice>(TYPES.iregistrationuiservice);
         if(this.props.business.length==0)
         {
@@ -33,7 +34,8 @@ import { connect } from 'react-redux';
       }
       }
       tabRow(){
-        return this.state.business.map(function(object:any, i:any){
+        // return this.state.business.map(function(object:any, i:any){
+          return this.props.business.map(function(object:any, i:any){
           debugger;
             return <TableRow obj={object} key={i} />;
         });
