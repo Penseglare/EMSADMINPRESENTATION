@@ -148,11 +148,20 @@ onChangeCategory(e:any) {
     vendor.City= this.state.City;
     vendor.State=this.state.State;
     vendor.Category= this.state.Category;
+    // this.state = {duplcationflag: false};
+    this.setState({duplcationflag: false});
     let ivendor = containerconfig.get<ivendorRegistrationuiservice>(TYPES.ivendoruiservice);
-    console.log(vendor);
-     ivendor.savevendorReg(vendor).then((res : any) => { console.log("success")});
-    
-
+    ivendor.getbyId(vendor.Emailid).then((response:any)=>{
+      this.setState({duplcationflag: true});
+    });
+    debugger;
+    const duplcationflag = this.state.duplcationflag;
+    if(duplcationflag){
+    alert("Email already registered");
+  }
+    else{
+    ivendor.savevendorReg(vendor).then((res : any) => { console.log("success")});
+    }
   }
 
   componentDidMount() {

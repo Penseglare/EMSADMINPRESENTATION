@@ -61,7 +61,7 @@ export default class vendorRegistrationuiservice implements ivendorRegistrationu
           vmodel.Emailid = response.data._emailid;
           vmodel.Password=response.data._password;
           vmodel.Category = response.data._category;
-          vmodel.City=response.data._city;
+           vmodel.City=response.data._city;
           vmodel.State = response.data._state;
           vmodel.Id=response.data._id;
             return vmodel;
