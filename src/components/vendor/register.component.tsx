@@ -4,7 +4,6 @@ import containerconfig from "../../config/containerconfig"
 import ivendorRegistrationuiservice from "../../uiservice/interface/ivendorRegistrationuiservice";
 import Vendormodel from "../../model/Vendormodel"
 
-
 export default class register extends Component<any, any> {
     render() {
         return (
@@ -140,6 +139,7 @@ onChangeCategory(e:any) {
 }
   onSubmit(e: any) {
     e.preventDefault();
+    this.setState({duplcationflag: false});
     let vendor = new Vendormodel();
     vendor.Vendername= this.state.Name;
     vendor.Mobilenumber= this.state.Mobile;
@@ -149,18 +149,17 @@ onChangeCategory(e:any) {
     vendor.State=this.state.State;
     vendor.Category= this.state.Category;
     // this.state = {duplcationflag: false};
-    this.setState({duplcationflag: false});
     let ivendor = containerconfig.get<ivendorRegistrationuiservice>(TYPES.ivendoruiservice);
     ivendor.getbyId(vendor.Emailid).then((response:any)=>{
       this.setState({duplcationflag: true});
     });
-    debugger;
     const duplcationflag = this.state.duplcationflag;
     if(duplcationflag){
     alert("Email already registered");
   }
     else{
-    ivendor.savevendorReg(vendor).then((res : any) => { console.log("success")});
+      alert(JSON.stringify(vendor));
+   ivendor.savevendorReg(vendor).then((res : any) => { console.log("success")});
     }
   }
 

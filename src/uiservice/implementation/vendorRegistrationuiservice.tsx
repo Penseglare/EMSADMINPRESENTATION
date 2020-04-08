@@ -5,6 +5,7 @@ import ivendorRegistrationuiservice from "../interface/ivendorRegistrationuiserv
 
 import Vendormodel from "../../model/Vendormodel"
 import baseConfig from "../../config/baseConfig"
+var CryptoJS = require("crypto-js");
 @injectable()
 export default class vendorRegistrationuiservice implements ivendorRegistrationuiservice
 {
@@ -12,7 +13,14 @@ export default class vendorRegistrationuiservice implements ivendorRegistrationu
     {
        //alert(JSON.stringify(vendor));
       // debugger;
-      console.log(vendor);
+      //console.log(vendor);
+      
+      var cipherpwd = CryptoJS.AES.encrypt(JSON.stringify(vendor.Password), 'Penseglare@user').toString();
+      vendor.Password=cipherpwd;
+      vendor.City="city";
+      vendor.Category="category";
+      vendor.State="State";
+      alert(JSON.stringify(vendor));
            return axios({method:'post',
         url:baseConfig.baseUrl+'api/savevendor', 
         data:vendor,
@@ -52,6 +60,8 @@ export default class vendorRegistrationuiservice implements ivendorRegistrationu
     }
     public  getbyId(id:string):any
     {
+      // var bytes = CryptoJS.AES.decrypt(ciphertext, 'Penseglare@user');
+      // var decryptedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));  
         let vmodel = new Vendormodel();
         console.log(id);
          return axios.get(baseConfig.baseUrl+'api/getRegistredvendorById/'+id)
