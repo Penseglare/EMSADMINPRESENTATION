@@ -6,8 +6,6 @@ import iregistrationuiservice from "../../uiservice/interface/iregistrationuiser
 import axios from 'axios';
 import TableRow from './TableRow';
 import regmodel from "../../model/registrationmodel";
-
-
 import {actionVariable} from '../../actions/actions';
 import reducer from '../../reducers/reducers';
 import store from '../../store/store'
